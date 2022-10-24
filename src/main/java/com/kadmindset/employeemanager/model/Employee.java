@@ -4,8 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -14,11 +13,14 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class Employee implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
     private Long id;
     private String name;
     private String email;
     private String jobTitle;
     private String phone;
     private String imageUrl;
-    private String code;
+    @Column(nullable = false, updatable = false)
+    private String employeeCode;
 }
