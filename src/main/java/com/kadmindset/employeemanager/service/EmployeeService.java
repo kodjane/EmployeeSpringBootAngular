@@ -9,8 +9,11 @@ import java.util.UUID;
 
 public class EmployeeService {
 
-    @Autowired
     private EmployeeRepository employeeRepository;
+    @Autowired
+    public EmployeeService(EmployeeRepository employeeRepository){
+        this.employeeRepository = employeeRepository;
+    }
 
     public Employee addEmployee(Employee employee){
         employee.setEmployeeCode(UUID.randomUUID().toString());
